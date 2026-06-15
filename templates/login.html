@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<h2>Workforce Management System Login</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input
+        type="text"
+        name="username"
+        placeholder="Username"
+    >
+
+    <br><br>
+
+   <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Password"
+>
+
+<button type="button" onclick="togglePassword()">
+    👁️
+</button>
+
+<script>
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+}
+</script>
+
+    <br><br>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+</body>
+</html>
